@@ -31,18 +31,11 @@ void longan_oled_init()
   LCD_Clear(BACK_COLOR);
 }
 
-void say_hello()
-{
-  char buf[64];
-  sprintf(buf, "Hello World");
-  LCD_ShowString(0, 0, (u8 const *)buf, BLUE);
-}
-
 int main(void)
 {
   longan_led_init();
   longan_oled_init();
-  say_hello();
+  LCD_ShowLogo();
   while (1)
   {
   }
