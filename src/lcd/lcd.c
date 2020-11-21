@@ -1,5 +1,5 @@
 #include "lcd/lcd.h"
-#include "lcd/bmp.h"
+#include "lcd/logo.h"
 #include "lcd/oledfont.h"
 
 u16 BACK_COLOR; // back ground color
@@ -480,9 +480,20 @@ void LCD_ShowPicture(u16 x1, u16 y1, u16 x2, u16 y2)
 void LCD_ShowLogo(void)
 {
   int i;
-  LCD_Address_Set(0, 0, 159, 75);
-  for (i = 0; i < 25600; i++)
+  LCD_Address_Set(0, 0, LCD_W - 1, LCD_H - 1);
+  for (i = 0; i < 12800; i++)
   {
-    LCD_WR_DATA8(logo_bmp[i]);
+    LCD_WR_DATA(logo_bmp[i]);
+  }
+}
+{
+  u16 i, j;
+  LCD_Address_Set(0, 0, LCD_W - 1, LCD_H - 1);
+  for (i = 0; i < LCD_W; i++)
+  {
+    for (j = 0; j < LCD_H; j++)
+    {
+      LCD_WR_DATA(logo_rgb565[j * LCD_W + i]);
+    }
   }
 }

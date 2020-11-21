@@ -122,4 +122,5 @@ void LCD_ShowLogo(void);
 #define LIGHTNAVY 0xA651
 #define DOWNNAVY 0x2B12
 
+#define HXLOGO_COLOR 0xD18B
 #endif
